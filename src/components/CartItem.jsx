@@ -3,10 +3,14 @@ import { toast } from 'react-toastify';
 import { TiInfoOutline } from 'react-icons/ti';
 
 import { maxDessertsCount } from '../consts';
-import { removeDessert, removeOneDessertCount, addDessert } from '../redux/cart/slice';
+import {
+  removeDessert,
+  removeOneDessertCount,
+  addDessert,
+} from '../redux/cart/slice';
 import { selectAmountItems } from '../redux/cart/selectors';
 
-const CartItem = ({ title, imageUrl, price, currentPrice, count, id, portion }) => {
+const CartItem = ({ title, imageUrl, price, currentPrice, count, id }) => {
   const allDessertsCount = useSelector(selectAmountItems);
   const dispatch = useDispatch();
 
@@ -23,7 +27,7 @@ const CartItem = ({ title, imageUrl, price, currentPrice, count, id, portion }) 
       return;
     }
 
-    dispatch(addDessert({ id, portion, title, imageUrl, price }));
+    dispatch(addDessert({ id, title, imageUrl, price }));
   };
 
   return (
@@ -56,9 +60,7 @@ const CartItem = ({ title, imageUrl, price, currentPrice, count, id, portion }) 
             />
           </svg>
         </div>
-        <b>
-          {count} {portion === '100гр' ? `по ${portion}` : portion}
-        </b>
+        <b>{count}</b>
         <div
           onClick={onPlus}
           className="button button--outline button--circle cart__item-count-plus"

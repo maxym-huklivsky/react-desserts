@@ -6,7 +6,7 @@ import { maxDessertsCount } from '../consts';
 import { selectAmountItems, selectItems } from '../redux/cart/selectors';
 import { addDessert } from '../redux/cart/slice';
 
-const Dessert = ({ id, imageUrl, title, portion, price }) => {
+const Dessert = ({ id, imageUrl, title, price }) => {
   const items = useSelector(selectItems);
   const allDessertsCount = useSelector(selectAmountItems);
   const dispatch = useDispatch();
@@ -24,21 +24,28 @@ const Dessert = ({ id, imageUrl, title, portion, price }) => {
       return;
     }
 
-    dispatch(addDessert({ id, title, imageUrl, price, portion }));
+    dispatch(addDessert({ id, title, imageUrl, price }));
   };
 
-  const desserts = items.filter((item) => item.id === id);
+  const desserts = items.filter(item => item.id === id);
   const count = desserts.reduce((count, dessert) => dessert.count + count, 0);
 
   return (
     <div className="dessert-block" key={id}>
-      <img className="dessert-block__image" src={imageUrl} alt={title} width="260" height="260" />
+      <img
+        className="dessert-block__image"
+        src={imageUrl}
+        alt={title}
+        width="260"
+        height="260"
+      />
       <h4 className="dessert-block__title">{title}</h4>
       <div className="dessert-block__bottom">
-        <div className="dessert-block__price">
-          {price} <span className="dessert-block__price-portion">грн. за {portion}</span>
-        </div>
-        <div className="button button--outline button--add" onClick={onAddDessert}>
+        <div className="dessert-block__price">{price} грн.</div>
+        <div
+          className="button button--outline button--add"
+          onClick={onAddDessert}
+        >
           <svg
             width="12"
             height="12"
