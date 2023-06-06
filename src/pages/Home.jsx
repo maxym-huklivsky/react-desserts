@@ -22,7 +22,6 @@ const Home = () => {
   const { category, sort, search, page } = useSelector(selectFilter);
   const desserts = useSelector(selectDesserts);
   const dispatch = useDispatch();
-  const isSearch = React.useRef(false);
   const isMouted = React.useRef(false);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -48,23 +47,18 @@ const Home = () => {
     const filterObj = obj;
 
     dispatch(setFilters(filterObj));
-    isSearch.current = true;
   }, [dispatch, searchParams]);
 
   React.useEffect(() => {
-    if (!isSearch.current) {
-      dispatch(
-        fetchDesserts({
-          activeSort,
-          order,
-          category,
-          page,
-          search,
-        })
-      );
-    }
-
-    isSearch.current = false;
+    dispatch(
+      fetchDesserts({
+        activeSort,
+        order,
+        category,
+        page,
+        search,
+      })
+    );
   }, [category, dispatch, order, page, search, activeSort]);
 
   React.useEffect(() => {
@@ -104,7 +98,7 @@ const Home = () => {
               <>
                 {desserts.length ? (
                   desserts.map(dessert => (
-                    <Dessert key={dessert.id} {...dessert} />
+                    <Dessert key={dessert._id} {...dessert} />
                   ))
                 ) : (
                   <h2>За Вашим запитом нічого не знайдено 😕</h2>

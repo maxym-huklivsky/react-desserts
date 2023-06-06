@@ -8,18 +8,17 @@ https://maxym-huklivsky.github.io/react-desserts
 
 ## About The App
 
-[Name of project] is an app that ... Screenshots
+Welcome to React Desserts, your one-stop shop for all things sweet! Our website
+is a delightful online store dedicated to bringing you a wide variety of
+mouthwatering desserts. From delectable cakes and pastries to irresistible
+cookies and pies, we have it all.
 
 ## Technologies
 
-I used html, css, ...
+I used HTML, SCSS, JS, React, Redux Toolkit, React Router, Axios.
 
 ## Setup
 
 1. Download or clone the repository
 2. run npm install
 3. run npm start
-
-## Approach
-
-I adopted the BEM naming style for my css class names and ...

@@ -9,9 +9,9 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addDessert(state, action) {
-      const { id } = action.payload;
+      const { _id } = action.payload;
 
-      const dessert = state.items.find(item => item.id === id);
+      const dessert = state.items.find(item => item._id === _id);
 
       if (dessert) {
         dessert.count++;
@@ -27,13 +27,13 @@ const cartSlice = createSlice({
       });
     },
     removeDessert(state, action) {
-      const index = state.items.findIndex(item => item.id === action.payload);
+      const index = state.items.findIndex(item => item._id === action.payload);
 
       state.items.splice(index, 1);
     },
     removeOneDessertCount(state, action) {
       const dessertIndex = state.items.findIndex(
-        item => item.id === action.payload
+        item => item._id === action.payload
       );
 
       const dessert = state.items[dessertIndex];

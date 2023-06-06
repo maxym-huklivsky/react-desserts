@@ -6,7 +6,14 @@ export const sortArray = [
 
 export const limit = 4;
 
-export const categories = ['Всі', 'Торти', 'Цукерки', 'Печиво', 'Еклери', 'Морозиво'];
+export const categories = [
+  'Всі',
+  'Торти',
+  'Цукерки',
+  'Печиво',
+  'Еклери',
+  'Морозиво',
+];
 
 export const params = {
   search: 'search',
@@ -15,4 +22,4 @@ export const params = {
   category: 'category',
 };
 
-export const maxDessertsCount = 50;
+export const maxDessertsCount = 200;

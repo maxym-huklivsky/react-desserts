@@ -10,7 +10,7 @@ import {
 } from '../redux/cart/slice';
 import { selectAmountItems } from '../redux/cart/selectors';
 
-const CartItem = ({ title, imageUrl, price, currentPrice, count, id }) => {
+const CartItem = ({ title, imageUrl, price, currentPrice, count, _id }) => {
   const allDessertsCount = useSelector(selectAmountItems);
   const dispatch = useDispatch();
 
@@ -27,7 +27,7 @@ const CartItem = ({ title, imageUrl, price, currentPrice, count, id }) => {
       return;
     }
 
-    dispatch(addDessert({ id, title, imageUrl, price }));
+    dispatch(addDessert({ _id, title, imageUrl, price }));
   };
 
   return (
@@ -40,7 +40,7 @@ const CartItem = ({ title, imageUrl, price, currentPrice, count, id }) => {
       </div>
       <div className="cart__item-count">
         <div
-          onClick={() => dispatch(removeOneDessertCount(id))}
+          onClick={() => dispatch(removeOneDessertCount(_id))}
           className="button button--outline button--circle cart__item-count-minus"
         >
           <svg
@@ -89,7 +89,7 @@ const CartItem = ({ title, imageUrl, price, currentPrice, count, id }) => {
       <div className="cart__item-remove">
         <div
           className="button button--outline button--circle"
-          onClick={() => dispatch(removeDessert(id))}
+          onClick={() => dispatch(removeDessert(_id))}
         >
           <svg
             width="10"

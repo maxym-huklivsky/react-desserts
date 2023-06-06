@@ -6,7 +6,7 @@ import { maxDessertsCount } from '../consts';
 import { selectAmountItems, selectItems } from '../redux/cart/selectors';
 import { addDessert } from '../redux/cart/slice';
 
-const Dessert = ({ id, imageUrl, title, price }) => {
+const Dessert = ({ _id, imageUrl, title, price }) => {
   const items = useSelector(selectItems);
   const allDessertsCount = useSelector(selectAmountItems);
   const dispatch = useDispatch();
@@ -24,14 +24,14 @@ const Dessert = ({ id, imageUrl, title, price }) => {
       return;
     }
 
-    dispatch(addDessert({ id, title, imageUrl, price }));
+    dispatch(addDessert({ _id, title, imageUrl, price }));
   };
 
-  const desserts = items.filter(item => item.id === id);
+  const desserts = items.filter(item => item._id === _id);
   const count = desserts.reduce((count, dessert) => dessert.count + count, 0);
 
   return (
-    <div className="dessert-block" key={id}>
+    <div className="dessert-block" key={_id}>
       <img
         className="dessert-block__image"
         src={imageUrl}

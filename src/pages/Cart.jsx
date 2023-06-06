@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import CartEmpty from '../components/CartEmpty';
 
 import CartItem from '../components/CartItem';
-import { selectAmountItems, selectItems, selectTotalPrice } from '../redux/cart/selectors';
+import {
+  selectAmountItems,
+  selectItems,
+  selectTotalPrice,
+} from '../redux/cart/selectors';
 import { clearCart } from '../redux/cart/slice';
 
 const Cart = () => {
@@ -91,8 +95,8 @@ const Cart = () => {
             </div>
           </div>
           <div className="content__items">
-            {items.map((item) => (
-              <CartItem key={`${item.id}${item.size}${item.type}`} {...item} />
+            {items.map(item => (
+              <CartItem key={item._id} {...item} />
             ))}
           </div>
           <div className="cart__bottom">
@@ -105,7 +109,10 @@ const Cart = () => {
               </span>
             </div>
             <div className="cart__bottom-buttons">
-              <Link to="/" className="button button--outline button--add go-back-btn">
+              <Link
+                to="/"
+                className="button button--outline button--add go-back-btn"
+              >
                 <svg
                   width="8"
                   height="14"
