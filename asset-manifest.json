@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-desserts/static/css/main.33072952.css",
-    "main.js": "/react-desserts/static/js/main.4de561be.js",
+    "main.css": "/react-desserts/static/css/main.d8d49c4f.css",
+    "main.js": "/react-desserts/static/js/main.5818582b.js",
     "static/media/ProximaNova-Regular.eot": "/react-desserts/static/media/ProximaNova-Regular.d97f8f32c098b28c3ab0.eot",
     "static/media/ProximaNova-Regular.ttf": "/react-desserts/static/media/ProximaNova-Regular.b078618b41b9b6629ea0.ttf",
     "static/media/ProximaNova-Bold.eot": "/react-desserts/static/media/ProximaNova-Bold.787088b281e017f8c449.eot",
@@ -16,11 +16,11 @@
     "static/media/ProximaNova-Extrabld.woff": "/react-desserts/static/media/ProximaNova-Extrabld.64f095e95e4018946cb1.woff",
     "static/media/ProximaNova-Black.woff": "/react-desserts/static/media/ProximaNova-Black.131eab64b8a971a4fc73.woff",
     "index.html": "/react-desserts/index.html",
-    "main.33072952.css.map": "/react-desserts/static/css/main.33072952.css.map",
-    "main.4de561be.js.map": "/react-desserts/static/js/main.4de561be.js.map"
+    "main.d8d49c4f.css.map": "/react-desserts/static/css/main.d8d49c4f.css.map",
+    "main.5818582b.js.map": "/react-desserts/static/js/main.5818582b.js.map"
   },
   "entrypoints": [
-    "static/css/main.33072952.css",
-    "static/js/main.4de561be.js"
+    "static/css/main.d8d49c4f.css",
+    "static/js/main.5818582b.js"
   ]
 }
