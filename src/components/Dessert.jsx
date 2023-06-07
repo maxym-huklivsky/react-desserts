@@ -1,6 +1,6 @@
-import { TiInfoOutline } from 'react-icons/ti';
+import { notify } from 'helpers/notify';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 import { maxDessertsCount } from '../consts';
 import { selectAmountItems, selectItems } from '../redux/cart/selectors';
@@ -11,16 +11,9 @@ const Dessert = ({ _id, imageUrl, title, price }) => {
   const allDessertsCount = useSelector(selectAmountItems);
   const dispatch = useDispatch();
 
-  const notify = () =>
-    toast('Це максимальна кількість товарів!', {
-      className: 'toast-message',
-      icon: <TiInfoOutline />,
-    });
-
   const onAddDessert = () => {
     if (allDessertsCount === maxDessertsCount) {
-      notify();
-      toast.clearWaitingQueue();
+      notify('Це максимальна кількість товарів!');
       return;
     }
 
@@ -32,13 +25,15 @@ const Dessert = ({ _id, imageUrl, title, price }) => {
 
   return (
     <div className="dessert-block" key={_id}>
-      <img
-        className="dessert-block__image"
-        src={imageUrl}
-        alt={title}
-        width="260"
-        height="260"
-      />
+      <Link to={_id}>
+        <img
+          className="dessert-block__image"
+          src={imageUrl}
+          alt={title}
+          width="260"
+          height="260"
+        />
+      </Link>
       <h4 className="dessert-block__title">{title}</h4>
       <div className="dessert-block__bottom">
         <div className="dessert-block__price">{price} грн.</div>

@@ -3,9 +3,7 @@ export const sortArray = [
   { en: 'price', order: 'asc', uk: 'ціні' },
   { en: 'title', order: 'asc', uk: 'алфавіту' },
 ];
-
 export const limit = 4;
-
 export const categories = [
   'Всі',
   'Торти',
@@ -14,12 +12,11 @@ export const categories = [
   'Еклери',
   'Морозиво',
 ];
-
 export const params = {
   search: 'search',
   sort: 'sort',
   page: 'page',
   category: 'category',
 };
-
 export const maxDessertsCount = 200;
+export const CART = 'cart';

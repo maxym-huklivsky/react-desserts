@@ -1,6 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import { TiInfoOutline } from 'react-icons/ti';
 
 import { maxDessertsCount } from '../consts';
 import {
@@ -9,21 +7,15 @@ import {
   addDessert,
 } from '../redux/cart/slice';
 import { selectAmountItems } from '../redux/cart/selectors';
+import { notify } from 'helpers/notify';
 
 const CartItem = ({ title, imageUrl, price, currentPrice, count, _id }) => {
   const allDessertsCount = useSelector(selectAmountItems);
   const dispatch = useDispatch();
 
-  const notify = () =>
-    toast('Це максимальна кількість товарів!', {
-      className: 'toast-message',
-      icon: <TiInfoOutline />,
-    });
-
   const onPlus = () => {
     if (allDessertsCount === maxDessertsCount) {
-      notify();
-      toast.clearWaitingQueue();
+      notify('Це максимальна кількість товарів!');
       return;
     }
 
